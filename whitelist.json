@@ -6,6 +6,6 @@
   ],
   "exclude": [
     "*/windows/runner/resources/*.ico",
-    "**/*.png
+    "**/*.png"
   ]
  }
