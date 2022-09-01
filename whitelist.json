@@ -5,6 +5,7 @@
     "LGPL-2.0+"
   ],
   "exclude": [
-    "*/*.ico",
+    "*/windows/runner/resources/*.ico",
+    "**/*.png
   ]
  }
