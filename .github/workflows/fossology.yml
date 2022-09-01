@@ -17,7 +17,7 @@ jobs:
        uses:  docker/setup-buildx-action@v1
 # license_check
      - name: license checking 
-       run: docker run --rm -v /home/runner/work/flutter_testing_app/flutter_testing_app:/project fossology/atarashi:latest -a DLD -l /project/report_license_check.csv /project/andriod
+       run: docker run --rm -v /home/runner/work/flutter_testing_app/flutter_testing_app:/project fossology/atarashi:latest -a DLD  /project/
 # Archive artifact
      - name: Archive TypeScript Package
        uses: actions/upload-artifact@v2
@@ -34,7 +34,7 @@ jobs:
        uses: actions/checkout@v1
 # Copy_Right_Check
      - name: Copy_Rights_checking 
-       run: docker run --rm -v /home/runner/work/flutter_testing_app/flutter_testing_app:/project fossology/atarashi:latest -a DLD -l /project/report_copy_right.csv /project/android
+       run: docker run --rm -v /home/runner/work/flutter_testing_app/flutter_testing_app:/project fossology/atarashi:latest -a DLD  /project/
 # Archive Artifact
      - name: Archive TypeScript Package
        uses: actions/upload-artifact@v2
