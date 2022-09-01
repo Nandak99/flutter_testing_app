@@ -1,0 +1,43 @@
+name: Fossology
+on:
+  workflow_dispatch: {}
+  push:
+   branches:
+     - fossology
+
+jobs:
+  license_check_job: 
+    name: license_check
+    runs-on: ubuntu-18.04
+	  container: fossology/fossology:scanner
+    steps: 
+	  - name: SCS TypeScript SDK  Checkout
+      uses: actions/checkout@v1
+		
+	  - name: license checking 
+	    run: /bin/fossologyscanner nomos ojo
+		
+    - name: Archive TypeScript Package
+      uses: actions/upload-artifact@v2
+      with:
+        name: license_check
+        paths:
+           - results
+
+  copyright_check:
+    name: license_check
+    runs-on: ubuntu-18.04
+	  container: fossology/fossology:scanner
+    steps: 
+	   - name: SCS TypeScript SDK  Checkout
+       uses: actions/checkout@v1
+		
+	   - name: Copy_Rights_checking 
+	     run: /bin/fossologyscanner copyright keyword
+		
+     - name: Archive TypeScript Package
+       uses: actions/upload-artifact@v2
+       with:
+         name: Copy_Rights_check
+         paths:
+            - results
