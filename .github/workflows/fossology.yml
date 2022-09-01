@@ -17,7 +17,8 @@ jobs:
        uses:  docker/setup-buildx-action@v1
 # license_check
      - name: license checking 
-       run: docker run --rm -v ./:/project fossology/atarashi:latest -a DLD -l report_license_check.csv /project/andriod
+       run: pwd
+       #run: docker run --rm -v ./:/project fossology/atarashi:latest -a DLD -l report_license_check.csv /project/andriod
 # Archive artifact
      - name: Archive TypeScript Package
        uses: actions/upload-artifact@v2
