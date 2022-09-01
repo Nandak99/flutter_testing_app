@@ -9,35 +9,36 @@ jobs:
   license_check_job: 
     name: license_check
     runs-on: ubuntu-18.04
-    container: fossology/fossology:scanner
     steps: 
      - name: SCS TypeScript SDK  Checkout
        uses: actions/checkout@v1
+# docker setup 
+     - name: setup docker buildX
+       uses:  docker/setup-buildx-action@v1
 # license_check
      - name: license checking 
-       run: /bin/fossologyscanner nomos ojo
+       run: docker run --rm -v ./:/project fossology/atarashi:latest -a DLD -l report_license_check.csv /project/andriod
 # Archive artifact
      - name: Archive TypeScript Package
        uses: actions/upload-artifact@v2
        with:
          name: license_check
          path: |
-            - results
+            - project/report_license_check.csv
 
   copyright_check:
     name: CopyRights_check
     runs-on: ubuntu-18.04
-    container: fossology/fossology:scanner
     steps: 
      - name: SCS TypeScript SDK  Checkout
        uses: actions/checkout@v1
 # Copy_Right_Check
      - name: Copy_Rights_checking 
-       run: /bin/fossologyscanner copyright keyword
+       run: docker run --rm -v ./:/project fossology/atarashi:latest -a DLD -l report_copy_right.csv /project/android
 # Archive Artifact
      - name: Archive TypeScript Package
        uses: actions/upload-artifact@v2
        with:
          name: Copy_Rights_check
          path: |
-            - results
+            - project/report_copy_right.csv
