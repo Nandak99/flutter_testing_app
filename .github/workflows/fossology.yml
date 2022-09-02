@@ -1,9 +1,6 @@
 name: Fossology
 on:
   workflow_dispatch: {}
-  push:
-   branches:
-     - fossology
 
 jobs:
   license_check_job: 
