@@ -1,5 +1,6 @@
 name: Build and Release APK
-on: push
+on: 
+  workflow_dispatch: {}
 jobs:
     hosting:
       name: Deploy Website
