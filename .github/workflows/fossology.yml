@@ -11,34 +11,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps: 
      - name: SCS TypeScript SDK  Checkout
-       uses: actions/checkout@v1
-# docker setup 
-     - name: setup docker buildX
-       uses:  docker/setup-buildx-action@v1
-# license_check
-     - name: license checking 
-       run: docker run --rm -v /home/runner/work/flutter_testing_app/flutter_testing_app:/project fossology/atarashi:latest -a DLD  /project/
-# Archive artifact
-     - name: Archive TypeScript Package
-       uses: actions/upload-artifact@v2
-       with:
-         name: license_check
-         path: |
-            - project/report_license_check.csv
-
-  copyright_check:
-    name: CopyRights_check
-    runs-on: ubuntu-18.04
-    steps: 
-     - name: SCS TypeScript SDK  Checkout
-       uses: actions/checkout@v1
-# Copy_Right_Check
-     - name: Copy_Rights_checking 
-       run: docker run --rm -v /home/runner/work/flutter_testing_app/flutter_testing_app:/project fossology/atarashi:latest -a DLD  /project/
-# Archive Artifact
-     - name: Archive TypeScript Package
-       uses: actions/upload-artifact@v2
-       with:
-         name: Copy_Rights_check
-         path: |
-            - project/report_copy_right.csv
+       uses: actions/checkout@v2
+     # license checking
+     
+     - name: Check License Lines
+       uses: kt3k/license_checker@v1.0.6
+       
