@@ -1,5 +1,5 @@
 # testing_app
-
+ok
 A Sample app that shows different types of testing in Flutter.
 
 This particular sample uses the [Provider][] package but any other state management approach
