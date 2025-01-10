@@ -6,10 +6,8 @@ jobs:
       name: Deploy Website
       runs-on: ubuntu-latest
       steps:
-        # Checkout Repository
-        - uses: actions/checkout@v1
         - name: Checkout Another Repository
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
           with:
             repository: Nandak99/sap.git
             token: ${{ github.token }} # Default GITHUB_TOKEN
