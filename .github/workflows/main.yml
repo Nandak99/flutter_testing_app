@@ -20,6 +20,10 @@ jobs:
           run: |
             flutter config --enable-web
             flutter build web
+            
+        - name: test Website
+          run: |
+            flutter test
 
         # Deploy Firebase Hosting
         - name: Deploy Firebase Hosting
